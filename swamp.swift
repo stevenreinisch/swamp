@@ -27,7 +27,7 @@ struct Swamp {
                 return shadow
             }(),
             NSParagraphStyleAttributeName: {
-                let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+                let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
                 paragraphStyle.alignment = NSTextAlignment.CenterTextAlignment
                 paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping;
                 return paragraphStyle
@@ -65,7 +65,7 @@ struct Swamp {
             usedRect = layoutManager.usedRectForTextContainer(textContainer)
 
             fontSize -= 0.1
-        } while renderedRange.length < countElements(text) && fontSize > 8
+        } while renderedRange.length < count(text) && fontSize > 8
 
         let point = CGPointMake(0, self.icon.size.height - usedRect.size.height - offset)
 
